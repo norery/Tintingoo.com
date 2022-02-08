@@ -1,18 +1,40 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# R Blogdown
+blogdown
+public
+.hugo_build.lock
 
-# Other files and folders
-.settings/
+# R Common
+.Rhistory
+.Rproj.user
+.RData
+.Ruserdata
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# VS Code
+.vscode
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Python
+*.pyd
+*.pyc
+*.pyo
+.ipynb_checkpoints
+
+# JetBrains
+.idea
+
+# Data
+*.zip
+*.tgz
+*.gz
+*.tar
+*.pkl
+data/*.jpg
+data/*.png
+scripts/**/*.txt
+scripts/**/*.json
+
+# Outputs
+outputs
+
+# System
+.DS_Store
+Thumbs.db
