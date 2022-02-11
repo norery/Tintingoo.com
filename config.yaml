@@ -18,18 +18,25 @@ permalinks:
 
 menu:
   home:
+    - name: "首页"
+      url: "/"
+      weight: 1
     - name: "博客"
       url: "/cn/"
-      weight: 1
+      weight: 2
+    - name: "分类"
+      url: "/categories/"
+      weight: 3
     - name: "关于"
       url: "/cn/about/"
-      weight: 2
-    - name: "Blog"
-      url: "/en/"
-      weight: 3
-    - name: "About"
-      url: "/en/about/"
       weight: 4
+    - identifier: "cn-menu-separator-1"
+      url: "#menu-separator"
+      weight: 5
+    - name: "摄影"
+      url: "/photography/"
+      weight: 6
+
   main:
     - name: "首页"
       url: "/"
@@ -37,21 +44,19 @@ menu:
     - name: "博客"
       url: "/cn/"
       weight: 2
+    - name: "分类"
+      url: "/categories/"
+      weight: 3
     - name: "关于"
       url: "/cn/about/"
-      weight: 3
-    - identifier: "menu-separator-1"
-      url: "#menu-separator"
       weight: 4
-    - name: "Home"
-      url: "/"
+    - identifier: "cn-menu-separator-1"
+      url: "#menu-separator"
       weight: 5
-    - name: "Blog"
-      url: "/en/"
+    - name: "摄影"
+      url: "/photography/"
       weight: 6
-    - name: "About"
-      url: "/en/about/"
-      weight: 7
+      
   en:
     - name: "Home"
       url: "/"
@@ -64,13 +69,7 @@ menu:
       weight: 3
     - identifier: "en-menu-separator-1"
       url: "#menu-separator"
-      weight: 4
-    - name: "About"
-      url: "/en/about/"
-      weight: 5
-    - name: "Resume"
-      url: "/en/resume/"
-      weight: 6
+
   cn:
     - name: "首页"
       url: "/"
@@ -81,19 +80,23 @@ menu:
     - name: "分类"
       url: "/categories/"
       weight: 3
+    - name: "关于"
+      url: "/cn/about/"
+      weight: 4
     - identifier: "cn-menu-separator-1"
       url: "#menu-separator"
-      weight: 4
+      weight: 5
     - name: "摄影"
       url: "/photography/"
+      weight: 6
 
 taxonomies:
   category: categories
 
 params:
-  description: "Leo Van's Personal Website | 范叶亮的个人网站"
-  disqusURL: "https://leovan.me"
-  licenseURL: "https://github.com/leovan/leovan.me/blob/master/LICENSE"
+  description: "Tintingo's Personal Website | 丁毅的个人网站"
+  disqusURL: "https://tintingoo.com"
+  licenseURL: "https://github.com/norery/tintingoo.com/blob/main/LICENSE"
   googleAdsense: "ca-pub-2608165017777396"
 
   jsCookieVersion: "3.0.0"
