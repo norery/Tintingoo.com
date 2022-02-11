@@ -1,0 +1,28 @@
+{
+  "itemsBaseURL": "/images/photography/",
+  "thumbnailWidth": "auto",
+  "thumbnailHeight": 400,
+  "thumbnailBorderVertical": 0,
+  "thumbnailBorderHorizontal": 0,
+  "thumbnailAlignment": "justified",
+  "thumbnailGutterWidth": 6,
+  "thumbnailGutterHeight": 6,
+  "thumbnailLabel": {
+    "titleMultiLine": true
+  },
+  "allowHTMLinData": true,
+  "thumbnailHoverEffect2": "labelAppear75",
+  "viewerToolbar": {
+    "display": true,
+    "standard":   "minimizeButton, label",
+    "minimized":  "minimizeButton, label, downloadButton, infoButton"
+  },
+  "items": [
+    { "src": "2020_moon.jpeg", "srct": "2020_moon.jpeg", "title": "月食" },
+    { "src": "2020_bridge1.jpeg", "srct": "2020_bridge1.jpeg", "title": "重庆盘龙立交1" },
+    { "src": "2020_bridge2.jpeg", "srct": "2020_bridge2.jpeg", "title": "重庆盘龙立交2" },
+    { "src": "2020_ziba.jpeg", "srct": "2020_ziba.jpeg", "title": "重庆洪崖洞糍粑" },
+    { "src": "2020_cloud.jpeg", "srct": "2020_cloud.jpeg", "title": "重庆山景" },
+    { "src": "2020_cloud2.jpeg", "srct": "2020_cloud2.jpeg", "title": "北京落日" }
+  ]
+}
