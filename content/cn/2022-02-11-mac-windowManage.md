@@ -13,11 +13,11 @@ tags:
 ---
 
 ## 前言
-这篇文章是本人对于MacOS的键盘流窗口管理的一些总结和心得。由于很早之前使用Linux的i3等平铺式桌面的经历，我对于窗口以及桌面的键盘控制流一直很喜欢。因此，自从换了mac以后，我一直在寻找MacOS上键盘流桌面管理的方法，最近这段时间觉得逐渐形成了一套稳定的流程，遂写文记录。
+这篇文章是本人对于 MacOS 的键盘流窗口管理的一些总结和心得。由于很早之前使用 Linux 的 i3 等平铺式桌面的经历，我对于窗口以及桌面的键盘控制流一直很喜欢。因此，自从换了mac以后，我一直在寻找 MacOS 上键盘流桌面管理的方法，最近这段时间觉得逐渐形成了一套稳定的流程，遂写文记录。
 
-MacOS中平铺式桌面的替代方案我选择的是[yabai](https://github.com/koekeishiya/yabai)，yabai 中快捷键操作是使用 [skhd](https://github.com/koekeishiya/skhd)实现的，因此我们需要同时安装yabai以及skhd，安装方法就不再赘述了，可以查看项目的github。另外有关 yabai 的更多说明参见[官方wiki](https://github.com/koekeishiya/yabai/wiki/)。
+MacOS 中平铺式桌面的替代方案我选择的是 [yabai](https://github.com/koekeishiya/yabai)，yabai 中快捷键操作是使用 [skhd](https://github.com/koekeishiya/skhd)实现的，因此我们需要同时安装yabai以及skhd，安装方法就不再赘述了，可以查看项目的 github。另外有关 yabai 的更多说明参见[官方wiki](https://github.com/koekeishiya/yabai/wiki/)。
 
-值得一提的是，安装完成以后想要实现开机启动以及后台运行，需要将它们加入到brew的service中：
+值得一提的是，安装完成以后想要实现开机启动以及后台运行，需要将它们加入到 `brew` 的 `service` 中：
 ```shell
 brew services start yabai
 brew services start skhd
@@ -25,7 +25,7 @@ brew services start skhd
 brew services stop yabai
 brew services stop skhd
 ```
-yabai和skhd都是需要我们使用配置文件进行配置的，配置文件的默认位置为: `~/.yabairc`以及`~/.skhdrc`。修改了 `~/.skhdrc` 之后配置文件可立刻生效，而修改了 `~/.yabairc` 以后需要重启 yabai 方能生效，因此在 `~/.skhdrc` 中加入以下命令，可以使用快捷键重启 yabai。
+yabai 和 skhd 都是需要我们使用配置文件进行配置的，配置文件的默认位置为: `~/.yabairc`以及`~/.skhdrc`。修改了 `~/.skhdrc` 之后配置文件可立刻生效，而修改了 `~/.yabairc` 以后需要重启 yabai 方能生效，因此在 `~/.skhdrc` 中加入以下命令，可以使用快捷键重启 yabai。
 ```shell
 # Restart Yabai
 ctrl + cmd + alt - r :
@@ -74,8 +74,8 @@ yabai -m config insert_window_border_color   0xffCF515C
 # toggle window border
 alt - b : yabai -m window --toggle border
 ```
-## space
-MacOS中在系统级别中为我们提供了 10 个 Space（即桌面1-10），通过 <系统偏好设置-快捷键-调度中心> 对切换桌面的快捷键进行配置，默认是`ctrl 1/9 0`。在这个页面也可以查看MacOS自带的快捷键列表并自行配置，也方便我们查看冲突的快捷键或取消不需要的快捷键（以免不小心触发）。
+## space 的基础操作
+MacOS 在系统级别中为我们提供了 10 个 Space（即桌面1-10），通过 <系统偏好设置-快捷键-调度中心> 对切换桌面的快捷键进行配置，默认是`ctrl 1/9 0`。在这个页面也可以查看MacOS自带的快捷键列表并自行配置，也方便我们查看冲突的快捷键或取消不需要的快捷键（以免不小心触发）。
 
 ![-w668](https://vde05-1256575153.cos.ap-beijing.myqcloud.com/2022/02/11/16445595603091.jpg)
 
@@ -115,9 +115,82 @@ ctrl + alt - 2 : yabai -m window --space shell
 ctrl + alt - 3 : yabai -m window --space surf
 ```
 
-## 窗口移动
+## window 的基础操作
+window（窗口）的基础操作大致可以分为三类，为了方便记忆，我为其分配了不同的快捷键前缀：
+1. 聚焦到某一窗口：`ctrl + alt`
+2. 窗口的移动、旋转：`shift + alt`
+3. 窗口的大小调整：`shift + cmd`
+
+这部分没什么特别需要讲解的，大家可以自行构想出方便使用的快捷键，直接看 `~/.skhdrc` 中的代码吧！
+
+```shell
+# =======================  window focus ==========================
+# 只在平铺的窗口上生效，浮动的窗口之间移动实现起来比较麻烦
+# focus window in direction of focused window (options: north, east, south, west)
+ctrl + alt - l : yabai -m window --focus east
+ctrl + alt - h : yabai -m window --focus west
+ctrl + alt - j : yabai -m window --focus south
+ctrl + alt - k : yabai -m window --focus north
+#
+# focus window that was previously focused
+ctrl + alt - b : yabai -m window --focus recent
+```
+```shell
+# =======================  window layout ==========================
+# 将窗口移动到上/下/左/右
+shift + alt - h : yabai -m window --warp west
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - l : yabai -m window --warp east
+
+# toggle window split type-水平排列转为垂直排列
+shift + alt - g : yabai -m window --toggle split
+
+# 窗口顺时针旋转 90 度,一开始垂直的半边屏幕总是一个总体,用的少
+shift + alt - r : yabai -m space --rotate 270
+# 窗口逆时针旋转 90 度
+# shift + alt - r : yabai -m space --rotate 90
+
+# Rotate on X and Y Axis
+shift + alt - x : yabai -m space --mirror x-axis
+shift + alt - y : yabai -m space --mirror y-axis
+
+# Float and center window-bsp/float
+# The grid format is <rows>:<cols>:<start-x>:<start-y>:<width>:<height>
+shift + alt - c : yabai -m window --toggle float;\
+                  yabai -m window --grid 6:6:1:1:4:4
+# 更小的浮动窗口
+shift + alt - s : yabai -m window --toggle float;\
+                  yabai -m window --grid 4:4:1:1:2:2
+```
+```shell
+# =======================  window resize ==========================
+# Make window native fullscreen-float
+alt - f : yabai -m window --toggle zoom-fullscreen
+# Resize windows
+shift+ cmd - h : \
+    yabai -m window --resize left:-20:0 ; \
+    yabai -m window --resize right:-20:0
+
+shift + cmd - j : \
+    yabai -m window --resize bottom:0:20 ; \
+    yabai -m window --resize top:0:20
+
+shift + cmd - k : 
+    yabai -m window --resize top:0:-20 ; \
+    yabai -m window --resize bottom:0:-20
+
+shift + cmd - l : \
+    yabai -m window --resize right:20:0 ; \
+    yabai -m window --resize left:20:0
+
+# Equalize size of windows
+shift + cmd - 0 : yabai -m space --balance
+
+```
+
 ## 快速打开应用
-在 MacOS 中有很多种方式快速打开应用（如果已经打开则会聚焦到该应用窗口），目前我使用的是 Hammerspoon 定义快速打开应用的快捷键。Hammerspoon 估计会专门出一篇文章介绍，这里只列出快速打开应用的代码，在 `~/.hammerspoon/init.lua` 文件中加入：
+在 MacOS 中有很多种方式快速打开应用（如果已经打开则会聚焦到该应用窗口），目前是使用 Hammerspoon 来定义快速打开应用的快捷键。有关 Hammerspoon 的使用方法和 Case，我估计会专门出一篇文章介绍，这里只列出快速打开应用的代码。在 `~/.hammerspoon/init.lua` 文件中加入以下代码段，就可以使用 `alt` 加对应的按键快速打开应用程序了。
 ```shell
 --- 快捷键小写大写等效
 hs.hotkey.bind({"alt"}, "E", open("Microsoft Word"))
@@ -131,6 +204,6 @@ hs.hotkey.bind({"alt"}, "L", open("Notion"))
 hs.hotkey.bind({"alt"}, "S", open("Logseq"))
 hs.hotkey.bind({"alt"}, "R", open("Mweb"))
 ```
-
+这里应用程序的名称可以在 `/Applications` 目录下找到，找到对应的应用程序后，去掉 `.app` 后缀即可。
 
 

@@ -86,19 +86,6 @@ menu:
       weight: 4
     - name: "摄影"
       url: "/photography/"
-      weight: 5
-    - name: "烹饪"
-      url: "/cooking/"
-      weight: 6
-    - name: "摩托"
-      url: "/motorcycle/"
-      weight: 7
-    - name: "关于"
-      url: "/cn/about/"
-      weight: 8
-    - name: "简历"
-      url: "/cn/resume/"
-      weight: 9
 
 taxonomies:
   category: categories
