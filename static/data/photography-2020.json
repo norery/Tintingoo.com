@@ -1,5 +1,5 @@
 {
-  "itemsBaseURL": "/images/photography/",
+  "itemsBaseURL": "https://vde05-1256575153.cos.ap-beijing.myqcloud.com/img/",
   "thumbnailWidth": "auto",
   "thumbnailHeight": 160,
   "thumbnailBorderVertical": 0,
@@ -18,7 +18,6 @@
     "minimized":  "minimizeButton, label, downloadButton, infoButton"
   },
   "items": [
-    { "src": "2020-03-10-night-moon.jpg", "srct": "2020-03-10-night-moon-thumbnail.jpg", "title": "夜·月" },
-    { "src": "2020-11-24-clear-view-in-puer.jpg", "srct": "2020-11-24-clear-view-in-puer-thumbnail.jpg", "title": "普洱干净到无需修图的天" }
+    { "src": "IMG_6001.jpeg", "srct": "IMG_6001.jpeg", "title": "xx" },
   ]
 }
