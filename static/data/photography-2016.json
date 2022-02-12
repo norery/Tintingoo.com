@@ -1,0 +1,36 @@
+{
+  "itemsBaseURL": "/images/photography/",
+  "thumbnailWidth": "auto",
+  "thumbnailHeight": 300,
+  "thumbnailBorderVertical": 0,
+  "thumbnailBorderHorizontal": 0,
+  "thumbnailAlignment": "justified",
+  "thumbnailGutterWidth": 6,
+  "thumbnailGutterHeight": 6,
+  "thumbnailLabel": {
+    "titleMultiLine": true
+  },
+  "allowHTMLinData": true,
+  "thumbnailHoverEffect2": "labelAppear75",
+  "viewerToolbar": {
+    "display": true,
+    "standard":   "minimizeButton, label",
+    "minimized":  "minimizeButton, label, downloadButton, infoButton"
+  },
+  "items": [
+    { "src": "2016_10南京长江大桥.jpeg", "srct": "2016_10南京长江大桥.jpeg", "title": "南京长江大桥" },
+    { "src": "2016_10_old_people.jpeg", "srct": "2016_10_old_people.jpeg", "title": "南京长江大桥上的老人" },
+    { "src": "2016_10南京鸡鸣寺晚霞.jpeg", "srct": "2016_10南京鸡鸣寺晚霞.jpeg", "title": "2016_10南京鸡鸣寺晚霞" },
+    { "src": "2016_11_umbrella.jpeg", "srct": "2016_11_umbrella.jpeg", "title": "南京浦口火车站雨伞" },
+    { "src": "2016_11_rail.jpeg", "srct": "2016_11_rail.jpeg", "title": "南京浦口火车站" },
+    { "src": "2016_06_爬楼南京奥体中心.jpeg", "srct": "2016_06_爬楼南京奥体中心.jpeg", "title": "爬楼南京奥体中心" },
+    { "src": "2016雨后校园.jpeg", "srct": "2016雨后校园.jpeg", "title": "雨后校园" },
+    { "src": "2016_10_南京玄武区清洁工人.jpeg", "srct": "2016_10_南京玄武区清洁工人.jpeg", "title": "南京玄武区清洁工人" },
+    { "src": "2016_11_train.jpeg", "srct": "2016_11_train.jpeg", "title": "浦口火车站火车" },
+    { "src": "2016街边工人.jpeg", "srct": "2016街边工人.jpeg", "title": "街边工人" },
+    { "src": "2016_乡村落日.jpeg", "srct": "2016_乡村落日.jpeg", "title": "2016_乡村落日" },
+    
+    { "src": "2016_PS银河.jpeg", "srct": "2016_PS银河.jpeg", "title": "PS银河" }
+    
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "itemsBaseURL": "/images/photography/",
   "thumbnailWidth": "auto",
-  "thumbnailHeight": 160,
+  "thumbnailHeight": 300,
   "thumbnailBorderVertical": 0,
   "thumbnailBorderHorizontal": 0,
   "thumbnailAlignment": "justified",
@@ -11,13 +11,14 @@
     "titleMultiLine": true
   },
   "allowHTMLinData": true,
-  "thumbnailHoverEffect2": "imageScaleIn80|labelAppear75",
+  "thumbnailHoverEffect2": "labelAppear75",
   "viewerToolbar": {
     "display": true,
     "standard":   "minimizeButton, label",
     "minimized":  "minimizeButton, label, downloadButton, infoButton"
   },
   "items": [
-    { "src": "2018-09-11-over-the-cloud.jpg", "srct": "2018-09-11-over-the-cloud-thumbnail.jpg", "title": "云之上" }
+    { "src": "2018水塔雪景.jpeg", "srct": "2018水塔雪景.jpeg", "title": "水塔雪景" }
+    
   ]
 }

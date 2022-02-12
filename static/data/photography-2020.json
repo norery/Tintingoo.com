@@ -1,7 +1,7 @@
 {
   "itemsBaseURL": "/images/photography/",
   "thumbnailWidth": "auto",
-  "thumbnailHeight": 400,
+  "thumbnailHeight": 300,
   "thumbnailBorderVertical": 0,
   "thumbnailBorderHorizontal": 0,
   "thumbnailAlignment": "justified",
@@ -18,11 +18,24 @@
     "minimized":  "minimizeButton, label, downloadButton, infoButton"
   },
   "items": [
-    { "src": "2020_moon.jpeg", "srct": "2020_moon.jpeg", "title": "月食" },
+    
     { "src": "2020_bridge1.jpeg", "srct": "2020_bridge1.jpeg", "title": "重庆盘龙立交1" },
     { "src": "2020_bridge2.jpeg", "srct": "2020_bridge2.jpeg", "title": "重庆盘龙立交2" },
+    { "src": "2020_moon.jpeg", "srct": "2020_moon.jpeg", "title": "月食" },
     { "src": "2020_ziba.jpeg", "srct": "2020_ziba.jpeg", "title": "重庆洪崖洞糍粑" },
     { "src": "2020_cloud.jpeg", "srct": "2020_cloud.jpeg", "title": "重庆山景" },
+    { "src": "2020_rain_accident.jpeg", "srct": "2020_rain_accident.jpeg", "title": "雨天意外" },
+    { "src": "2020_cat.jpeg", "srct": "2020_cat.jpeg", "title": "北京猫咖" },
+    { "src": "2020_扫街水果摊.jpeg", "srct": "2020_扫街水果摊.jpeg", "title": "扫街水果摊" },
+    { "src": "2020-07-06北京雨天耶稣光.jpeg", "srct": "2020-07-06北京雨天耶稣光.jpeg", "title": "北京雨天耶稣光" },
+  
+    { "src": "2020_窗台一隅.jpeg", "srct": "2020_窗台一隅.jpeg", "title": "窗台一隅" },
+    
+    { "src": "2020_rain_reflect.jpeg", "srct": "2020_rain_reflect.jpeg", "title": "雨水中的倒影" },
+    { "src": "2020_rain_window.jpeg", "srct": "2020_rain_window.jpeg", "title": "窗户上的雨滴" },
+    { "src": "2020_road.jpeg", "srct": "2020_road.jpeg", "title": "北京西三环马路" },
+    
+    
     { "src": "2020_cloud2.jpeg", "srct": "2020_cloud2.jpeg", "title": "北京落日" }
   ]
 }

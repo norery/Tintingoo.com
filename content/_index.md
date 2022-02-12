@@ -14,13 +14,12 @@ lastmod: '2022-02-11'
 4. 我的工具流 -- 好用的软件分享（支持正版，从我做起❗）
 
 
-> 我不同意你的观点，但是我誓死捍卫你说话的权利。  
-> _Je ne suis pas d'accord avec ce que vous dites, mais je me battrai jusqu'à la mort pour que vous ayez le droit de le dire._  
-> _I disapprove of what you say, but I will defend to the death your right to say it._
+> 世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它.     
+> _"Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer." Romain Rolland._  
 
 
 Hi, I’m Tintin (Ding Yi). When I was a kid, I thought I was SpongeBob, but when I grew up, I realized I was Squidward. 
 
 > "The older we get, the more we understand this guy". 
 
-But I think Squidward is actually better than most of us. Because, although he works in a job he doesn't like, he still practices his musical 🎼 instrument 🎻 at home, paints, dances and sculpts... He didn't let the job define him. 
+But I think Squidward is actually better than most of us. Because, although he works in a job he doesn't like, he still practices his musical 🎼 instrument 🎻 at home, paints, dances and sculpts... He didn't let the job define him. There’s nothing more beautiful than a smile that struggles through tears.

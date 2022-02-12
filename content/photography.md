@@ -11,4 +11,4 @@ disable_adsense: true
 ---
 
 ## 「人生定格」
-{{< nanogallery2-gallery data-base-url="/data/photography" tags="2021,旧识" >}}
+{{< nanogallery2-gallery data-base-url="/data/photography" tags="2021,2020,2018,2016" >}}

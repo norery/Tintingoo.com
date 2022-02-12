@@ -1,7 +1,7 @@
 {
   "itemsBaseURL": "/images/photography/",
   "thumbnailWidth": "auto",
-  "thumbnailHeight": 160,
+  "thumbnailHeight": 300,
   "thumbnailBorderVertical": 0,
   "thumbnailBorderHorizontal": 0,
   "thumbnailAlignment": "justified",
@@ -18,6 +18,8 @@
     "minimized":  "minimizeButton, label, downloadButton, infoButton"
   },
   "items": [
-    { "src": "2021_cloud.jpeg", "srct": "2021_cloud.jpeg", "title": "北京晚霞" }
+    { "src": "2021_cloud.jpeg", "srct": "2021_cloud.jpeg", "title": "北京晚霞" },
+    { "src": "2021_大理街道晚霞.jpeg", "srct": "2021_大理街道晚霞.jpeg", "title": "大理街道晚霞" }
+    
   ]
 }
