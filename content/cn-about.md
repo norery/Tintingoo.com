@@ -15,7 +15,7 @@ disable_adsense: true
 我是 **丁毅**，也可以叫我 **叮叮** 或是 **Tintin**。在生活中，我有很多喜欢的东西，比如听音乐 🎧 看动漫 📟 打游戏 🎮  看剧。你可以认为我是一个二次元宅男，因为如果条件允许我的确可以一个月不出门。我最大的愿望是每天睡到自然醒。
 
 <picture>
-    ![丁毅](https://vde05-1256575153.cos.ap-beijing.myqcloud.com/img/20220211220429.png)
+    <div align=center>![丁毅](https://vde05-1256575153.cos.ap-beijing.myqcloud.com/img/Snipaste_2022-02-12_20-51-06.png)
 </picture>
 
 # 喜欢啥？

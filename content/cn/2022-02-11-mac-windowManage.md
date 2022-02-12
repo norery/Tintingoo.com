@@ -45,7 +45,7 @@ yabai -m config --space 2 layout float
 ```
 ## 窗口的美化
 ### 半透明效果的实现
-具有半透明效果的窗口可能在视觉上给人一种更美观的感觉。幸运的是在 yabai 中我们可以以很简单的方式实现窗口的半透明效果，而且可以为聚焦窗口和非聚焦窗口设置不同的透明度，以起到简单区分聚焦窗口的效果。在 `~/.yabairc` 中进行如下设置：
+具有半透明效果的窗口可能在视觉上给人一种更美观的感觉。幸运的是在 yabai 中我们可以使用很简单的方式实现窗口的半透明效果，而且可以为聚焦窗口和非聚焦窗口设置不同的透明度，以起到简单区分聚焦窗口的效果。在 `~/.yabairc` 中进行如下设置：
 ```shell
 # window opacity (default: off)
 yabai -m config window_opacity on
@@ -99,6 +99,7 @@ yabai -m rule --add label=chrome app="^Google Chrome$" space=surf
 yabai -m rule --add label=safari app="^Safari浏览器$" space=surf
 ```
 限于篇幅，使用前三个 space 的配置进行示例。我们可以使用 `--label` 对每一个 space 进行命名，并将应用程序指定到该 space 中。
+
 > 上述配置的作用是当打开应用程序或重启 yabai 时，自动将该应用程序移动到指定的 space 中。
 
 清楚了效果以后，我们可以想像一下应用场景。我的使用方式是将功能划分很明显的应用分配到固定的 space 中，一般不会改变它的 space；对于可能在多个 space 中打开的应用（例如 Finder），不设置它的固定 space。
@@ -117,6 +118,7 @@ ctrl + alt - 3 : yabai -m window --space surf
 
 ## window 的基础操作
 window（窗口）的基础操作大致可以分为三类，为了方便记忆，我为其分配了不同的快捷键前缀：
+
 1. 聚焦到某一窗口：`ctrl + alt`
 2. 窗口的移动、旋转：`shift + alt`
 3. 窗口的大小调整：`shift + cmd`
