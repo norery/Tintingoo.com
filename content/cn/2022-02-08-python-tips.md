@@ -401,7 +401,10 @@ Out: args: (1, 2)
 ```python
 ## 还原解包的过程，其实就相当于把参数分解以后，传入了函数中。
 def f3(one, two, name, age):
-    print(f'one: {one}')print(f'two: {two}')print(f'name: {name}')print(f'age: {age}')f3(*a,**b)
+    print(f'one: {one}')
+    print(f'two: {two}')
+    print(f'name: {name}')
+    print(f'age: {age}')f3(*a,**b)
 
 Out: one: 1
      two: 2
@@ -438,7 +441,9 @@ Out: [('one', 1), ('two', 2), ('tree', 3), ('four', 4)]
 
     ```python
     a, b = ab
-    print(f'a: {a}')print(f'b: {b}')Out: a: ('one', 'two', 'tree', 'four')
+    print(f'a: {a}')
+    print(f'b: {b}')
+    Out: a: ('one', 'two', 'tree', 'four')
          b: (1, 2, 3, 4)
     ```
 
