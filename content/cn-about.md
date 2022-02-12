@@ -29,4 +29,4 @@ disable_adsense: true
 2015 年十月拥有了我人生中的第一台相机 -- 佳能 D70. 我用这台残幅相机拍出了许多满意的风景照和扫街图，具体可以参见 [摄影](/photography/) 页面。如今，老相机还在，只是缺少出去扫街的时间和一起的人罢了...
 
 
-<img src="https://vde05-1256575153.cos.ap-beijing.myqcloud.com/img/2021_扫街自拍.jpeg" width = "300" alt="扫街自拍" align=center />
+<img src="https://vde05-1256575153.cos.ap-beijing.myqcloud.com/img/2021_扫街自拍.jpeg" width = "50%" alt="扫街自拍" align=center />
