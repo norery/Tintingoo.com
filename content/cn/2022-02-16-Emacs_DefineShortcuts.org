@@ -1,5 +1,5 @@
 ---
-title: 探索 Doom Emacs 的快捷键命令-org
+title: 探索 Doom Emacs 的快捷键命令
 author: Tintingo
 date: '2022-02-15'
 slug: doom-emacs-shortcuts-org

@@ -27,35 +27,44 @@ tags:
 #+attr_html: :style max-width:100%;
 [[file:https://vde05-1256575153.cos.ap-beijing.myqcloud.com/img/doom-emacs-bw-light.svg]]
 
-This is my Doom Emacs configuration. From this org file, all the necessary Doom Emacs config files are generated.
+在使用了 Doom Emacs 一段时间后，我将自己积累的配置文件集合到这个 org 文件中，以便进行统一管理。接触过 Doom Emacs 的朋友肯定知道，在 Doom Emacs 中，用户配置文件主要可以分为三个：
 
-* Table of Contents :TOC_3:noexport:
-- [[#references][References]]
-- [[#doom-config-file-overview][Doom config file overview]]
-  - [[#config-file-headers][Config file headers]]
-    - [[#generate-initel-file-headers][generate init.el file headers]]
-    - [[#generate-packageel-file-headers][generate package.el file headers]]
-    - [[#generate-configel-file-headers][generate config.el file headers]]
-  - [[#customized-variables][Customized variables]]
-- [[#doom-modules][Doom modules]]
-- [[#general-configuration][General configuration]]
-  - [[#visual-session-and-window-settings][Visual, session and window settings]]
-    - [[#basic-ui-settings][Basic UI settings]]
-    - [[#dashborad-settngs][Dashborad settngs]]
-    - [[#nayn-mode][nayn-mode]]
-  - [[#customize-keybinding][Customize KeyBinding]]
-- [[#org-mode][Org mode]]
-  - [[#ui-settings][UI Settings]]
-    - [[#org-superstar][org-superstar]]
-    - [[#org-appear][org-appear]]
-    - [[#org-ol-tree][org-ol-tree]]
-- [[#chinese-support][Chinese support]]
-  - [[#简介][简介]]
-  - [[#安装和使用][安装和使用]]
-  - [[#pangu-spacing][pangu-spacing]]
-- [[#python][Python]]
-  - [[#emacs-ipython-notebook][Emacs Ipython Notebook]]
-- [[#load-path][load-path]]
++ =init.el= :: defines which of the existing Doom [[https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#modules][modules]] are loaded. A Doom module is a bundle of packages, configuration and commands, organized into a unit that can be toggled easily from this file.
++ =packages.el= :: defines which [[https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#package-management][packages]] should be installed, beyond those that are installed and loaded as part of the enabled modules.
++ =config.el= :: contains all [[https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#configuring-doom][custom configuration]] and code.
+
+#+begin_quote
+由于一些信息在网页中无法显示，可以对比我的 dotfiles 中的 [[https://github.com/norery/dotfiles/blob/master/.doom.d/DoomConfig.org][DoomConfig.org]] 文件进行查看。主要有两点，在此进行说明：
+#+end_quote
+
+**1. 开头的信息**
+#+begin_src shell
+
+:DOC-CONFIG:
+# Tangle by default to config.el, which is the most common case
+#+property: header-args:emacs-lisp :tangle config.el
+#+property: header-args :mkdirp yes :comments no
+#+startup: fold
+:END:
+#+end_src
+加上此信息后，emacs 就知道此文件中的 elisp 代码默认发送到 =config.el= 文件中去。
+
+**2. 代码块中的信息**
+#+begin_src shell
+; #+begin_src emacs-lisp :tangle packages.el
+; (package! rime)
+; #+end_src
+#+end_src
+
+其中的 =emacs-lisp :tangle packages.el= 的作用就是当执行 =org-babel-tangle= 命令之后将代码块中的内容发送到 =packages.el= 文件中。
+
+当我们修改完此org文件并保存后，执行以下两个步骤可以将elisp代码块发送到对应的文件中：
+
+1. 光标位于 =#+property: header-args:emacs-lisp :tangle config.el= 行，按下 =C-c C-c=
+2. =M-x org-babel-tangle=
+
+
+
 
 * References
 
