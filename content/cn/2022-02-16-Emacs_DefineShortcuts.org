@@ -1,0 +1,127 @@
+---
+title: 探索 Doom Emacs 的快捷键命令-org
+author: Tintingo
+date: '2022-02-15'
+slug: doom-emacs-shortcuts-org
+show_toc: true
+toc_depth: 3
+categories:
+  - Emacs
+tags:
+  - MacOS
+  - Emacs
+  - 效率工具
+---
+
+Doom Emacs 的快捷键逻辑一直被很多使用者称赞，在使用了一段时间后，我也觉得很顺手，决定在此套按键逻辑的基础上进行扩展。在 Hack 的过程中，发现还是有不少问题需要注意的，在本文中做一些记录。
+
+
+* 参考文章
+[[https://www.youtube.com/watch?v=xaZMwNELaJY][The Video of System Crafters]] and [[https://github.com/hlissner/doom-emacs/blob/develop/core/core-keybinds.el][His Configuration: core-keybinds.el]]
+
+* 快捷键类型
+** 1. 全局快捷键
+=global-set-key= 设置的是全局快捷键，它不会被绑定到任何 Major mode 或 minor mode 中，优先级是最低的。可以将其理解为一个基础的键位设定，当启用的 Major mode 或 minor mode 中对该快捷键设置了其他的功能时，使用 =global-set-key= 设置的功能就不会表现出来。
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "key") 'command)
+;; for a real example
+(global-set-key (kbd "s-k")
+    (lambda () (interactive) (evil-previous-line 5)))
+#+end_src
+
+上面的例子中，我们将 =s-k= 键（s 在 macOS 中为 Command 键）设置为光标往上移动五行。
+
+设置成功以后，可以使用 =SPC hk= 查看 =s-k= 快捷键，发现它的 Key Bindings 描述为 =global-map s-k= , 说明该快捷键绑定在 =global map= 中。使用 =SPC h b k= 打开 =which-key-show-map= 搜索 =global map= 就可以找到刚才定义的快捷键了,或者使用 =SPC h v= 查找 =global map= 这个变量,也可以找到该快捷键.
+
+** 2. 基于 Major-Mode 的局部快捷键
+
+#+begin_src emacs-lisp
+(local-set-key (kbd "key") 'command)
+#+end_src
+
+使用 =SPC hf= 查看 =local-set-key= 的说明，发现：
+#+begin_quote
+The binding goes in the current buffer's local map, which in most cases is shared with all other buffers in the same major mode.
+#+end_quote
+
+发现这个绑定被放到了 the current buffer's local map 中，这个 map 会被该 buffer 相同的 major mode 所使用。所以说 local-set-key 也可以被记忆为基于 Major-Mode 的局部快捷键设置命令。
+
+在下面的例子中，我们将快捷键绑定到 =Org Mode= 中，当 major mode 为 Org Mode 时，按下 =s-k= 快捷键时，光标将会跳转到上一个 heading 上。
+#+begin_src emacs-lisp
+;; for a real example
+(add-hook 'org-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "s-k") 'org-previous-visible-heading)))
+#+end_src
+
+这里结合 =add-hook= ，使用 =local-set-key= 设置了仅在 org-mode（必须为一个 major mode） 中生效的 local 快捷键，不会影响到其他 major-mode 中。设置成功后，使用 =SPC h b m= 可以在当前的 Major mode key map 中找到 =s-k= 快捷键，当然这需要当前的 major mode 为 org-mode。
+
+** 3. 基于 mode-map 的局部快捷键
+
+使用 =define-key= 定义的局部快捷键绑定在特定的 KEYMAP 中，仅在 major or minor-mode 启用该  KEYMAP 时生效。这使我们可以精确地对快捷键进行控制。相比起前两种定义，这种方式范围最精确，优先级也最高。
+
+#+begin_src emacs-lisp
+;; example in SPC hf -> define-key
+(define-key evil-motion-state-map (kbd "s-k") 'emacs-version)
+#+end_src
+
+这个例子我们使用了 =define-key= 对 =s-k= 快捷键绑定在 =evil-motion-state-map= 中，当 这个 KEYMAP 被启用时，按下 =s-k= 将会在底部打印 Emacs 的版本信息。
+
+但是实际我们用的最多的是 [[https://github.com/noctuid/general.el/tree/a0b17d207badf462311b2eef7c065b884462cb7c][general package]] 提供的 =general-define-key= 命令来创建绑定在 KEYMAP 的局部快捷键，它可以提供更为强大的功能。接下来我们使用 =general-define-key= 来实现与上面的 =define-key= 相同的功能。
+
+#+begin_src emacs-lisp
+(general-define-key :keymaps
+                    '(evil-motion-state-map)
+                    "s-k"
+                    (list :def 'emacs-version :which-key "show emacs-version"))
+#+end_src
+
+Doom Emacs 中还提供了一个 =map!= 命令，使用 =SPC hf map!= 可以看到：
+
+#+begin_quote
+A convenience macro for defining keybinds, powered by general.
+#+end_quote
+
+当光标位于 =map!= 之上时，可以使用 =M-x macrostep expend= 对其进行展开，下面的 =map!= 代码块展开即为上文中的 =general-define-key= 代码块。
+
+#+begin_src emacs-lisp
+(map! :map evil-motion-state-map
+      :desc "show emacs-version" "s-k"  'emacs-version
+  )
+#+end_src
+
+这里先对 =general= 以及 =map!= 的基本概念有个大致了解，后续将对它们的用法和写法做详细介绍。
+
+* 三种快捷键的优先度测试
+上面我们使用了三种方式分别对 =s-k= 快捷键做了定义，分别为：
+
+1. CASE1 --> =global-set-key= -> 将光标往上移动五行，若不被覆盖则会全局生效。
+2. CASE2 --> =local-set-key= -> 移动到上一个 org heading. 若不被覆盖则会在 Org Mode 这个 Major Mode 被启用时生效。
+3. CASE3 --> =define-key= or =general-define-key= or =map!= -> 打印当前 Emacs 版本信息。
+
+这三种方式的优先度顺序为: =define-key= > =local-set-key= > =global-set-key= , 下面设计了两组试验对优先度顺序进行演示：
+
++ 实验一:将三个 CASE 的代码均放在配置文件中，为排除代码顺序的可能影响，三个 CASE 在配置文件中的放置顺序为： CASE3, CASE2, CASE1
+  - 实验结果：只有 CASE3 生效。说明三种 CASE 同时存在时，CASE3 将其余两种均覆盖掉了。
++ 实验二:将前两个 CASE 按照 CASE2, CASE1 的顺序放置在配置文件中
+  - 实验结果:在 Org 文件中,CASE2 生效, 这说明当 Major Mode 为 Org Mode 时, CASE2 将 CASE1 覆盖掉了; 而在非 Org 文件中, CASE1 生效,因为此时 CASE2 没有生效,就无法覆盖 CASE1.
+
+三种方式中,第二种方式在日常中基本没有应用,不必在意.当需实现更为精细的控制时,可使用第三种方式定义快捷键;如果确定该快捷键不会在某种情况下被覆盖(比较冷门或使用快捷键前缀)时,使用第三种方式也是比较简单和快速的.
+
+总结设置快捷键的工作流程：
+1. 寻找实现功能的 command 名称。
+   + 如果已有一个比较复杂的快捷键可实现该功能，可使用 =SPC hk= 查找该 command 名称，然后使用 =SPC hf= 查找定义它的函数的详细说明。
+   + 如果没有已定义的快捷键，就只能通过搜索文档查找有无已定义的功能，或自己写代码实现该功能。
+   + 思考该快捷键的使用场景，要绑定到哪个 KEYMAP 中(可以使用 =SPC h b k= 或 =SPC h v= 查看 KEYMAP 变量)? 又或者直接定义一个 global map？
+
+在绑定快捷键时需要用到的查找命令及快捷键汇总如下:
+
+| Doom shortcut key | Signature                                        | Description                                                  |
+|-------------------+--------------------------------------------------+--------------------------------------------------------------|
+| SPC h k           | helpful-key KEY-SEQUENCE                         | Show help for interactive command bound to KEY-SEQUENCE      |
+| SPC h f           | helpful-callable SYMBOL                          | Show help for function, macro or special form named SYMBOL   |
+| SPC h v           | helpful-variable SYMBOL                          | Show help for variable named SYMBOL                          |
+| SPC h b k         | which-key-show-keymap KEYMAP &optional NO-PAGING | Show the top-level bindings in KEYMAP using which-key        |
+| SPC h b m         | which-key-show-major-mode &optional ALL          | Show top-level bindings in the map of the current major mode |
+| SPC h m           | describe-mode &optional BUFFER                   | Display documentation of current major mode and minor modes  |
