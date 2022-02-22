@@ -2,7 +2,7 @@
 title: 本博客的建立及部署 -- 使用 blogdown + Vercel 快速建立博客
 author: Tintingo
 date: '2022-02-16'
-slug: doom-emacs-config
+slug: establish-blog-hugo
 show_toc: false
 toc_depth: 3
 categories:

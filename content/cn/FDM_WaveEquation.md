@@ -1,7 +1,7 @@
 ---
 title: 从泰勒展开推导弹性波动方程的有限差分近似
 author: Tintingo
-date: '2022-02-11'
+date: '2022-02-22'
 slug: FDM-WaveEquation
 show_toc: ture
 toc_depth: 3
@@ -11,6 +11,7 @@ tags:
   - WaveEquation
   - FDM
 ---
+
 
 
 以一维弹性波动方程为例：
@@ -23,9 +24,9 @@ tags:
 式中，位移 $u(x,t)$ 是空间坐标 x 和时间 t 的单值连续函数，$c$ 为波速。
 
 
-<a id="org5f68222"></a>
+<a id="org0ba3982"></a>
 
-# 空间差分算子的推导
+## 空间差分算子的推导
 
 首先对位移函数 $u(x,t)$ 在坐标 $x$ 两侧附近作泰勒展开：
 
@@ -40,9 +41,9 @@ u(x - \Delta x, t) = u(x, t) - \Delta x \frac{\partial u(x, t)}{\partial x} + \f
 \end{equation}
 
 
-<a id="orge7e5278"></a>
+<a id="org526bfd3"></a>
 
-## 位移对空间一阶偏导数的近似形式推导
+### 位移对空间一阶偏导数的近似形式推导
 
 用 式 \ref{eq:2} 减去 式 \ref{eq:3}：
 
@@ -68,7 +69,7 @@ u(x+\Delta x, t) - u(x-\Delta x, t) = 2 \Delta \frac{\partial u(x, t)}{\partial 
 \frac{\partial u(x, t)}{\partial x} = \frac{u(x+\Delta x, t) - u(x-\Delta x, t)}{2\Delta x} + O(\Delta x^{2})  = D_{x}u + O(\Delta x^{2})
 \end{equation}
 
-式中，$D_{x}$ 称为 `差分算子` ，$O(\Delta x^{2})$ 称为差分算子 $D_{x}$ 的 `截断误差` 。
+式中，$D_{x}$ 称为 `差分算子` ，$O(\Delta x^{2})$ 称为差分算子的 `截断误差` 。
 
 与公式中的其他项相比，小量 $\Delta x$ 的二阶及更高阶指数项可以忽略时，得到 `位移对空间一阶偏导数的近似形式` ：
 
@@ -78,9 +79,9 @@ u(x+\Delta x, t) - u(x-\Delta x, t) = 2 \Delta \frac{\partial u(x, t)}{\partial 
 \end{equation}
 
 
-<a id="orgf8950c4"></a>
+<a id="org4a25ccd"></a>
 
-## 位移对空间二阶偏导数的近似形式推导
+### 位移对空间二阶偏导数的近似形式推导
 
 用 式 \ref{eq:2} 加上 式 \ref{eq:3}，得到：
 
@@ -90,7 +91,7 @@ u(x+\Delta x, t) - u(x-\Delta x, t) = 2 \Delta \frac{\partial u(x, t)}{\partial 
 u(x+\Delta x, t) + u(x-\Delta x, t) = 2 u(x, t) + \Delta x^{2} \frac{\partial^{2} u(x, t)}{\partial x^{2}} + O(\Delta x^{4})
 \end{equation}
 
-将 $\frac{&part;<sup>2</sup> u(x, t)}{&part; x<sup>2</sup>}$ 移到左边，整理为：
+将 $\frac{\partial^{2} u(x, t)}{\partial x^{2}}$ 移到左边，整理为：
 
 \begin{equation}
 \label{eq:9}
@@ -98,7 +99,7 @@ u(x+\Delta x, t) + u(x-\Delta x, t) = 2 u(x, t) + \Delta x^{2} \frac{\partial^{2
 \frac{\partial^{2} u(x, t)}{\partial x^{2}}  = \frac{u(x+\Delta x, t) + u(x - \Delta x, t) - 2u(x,t)}{\Delta x^{2}} + O(\Delta x^{2}) = D_{xx}u + O(\Delta x^{2})
 \end{equation}
 
-式中，$D_{xx}$ 为 `二阶差分算子` ，$O(\Delta x^{2})$ 称为差分算子 $D_{xx}$ 的 `截断误差` 。
+式中，$D_{xx}$ 为 `二阶差分算子` ，$O(\Delta x^{2})$ 称为差分算子的 `截断误差` 。
 
 与公式中的其他项相比，小量 $\Delta x$ 的二阶及更高阶指数项可以忽略时，得到 `位移对空间二阶偏导数的近似形式` ：
 
@@ -110,9 +111,9 @@ u(x+\Delta x, t) + u(x-\Delta x, t) = 2 u(x, t) + \Delta x^{2} \frac{\partial^{2
 因此，位移函数在坐标 x 处的一阶和二阶偏导数，都可以近似表示为 x 附近函数值的差商形式，截断误差均为 $O(\Delta x^{2})$ 。
 
 
-<a id="org9e1c6b9"></a>
+<a id="org127a3cc"></a>
 
-# 时间差分算子的推导
+## 时间差分算子的推导
 
 首先对位移函数 $u(x,t)$ 在坐标 $t$ 两侧附近作泰勒展开：
 
@@ -126,7 +127,7 @@ u(x, t + \Delta t) = u(x, t) + \Delta t \frac{\partial u(x, t)}{\partial t} + \f
 u(x, t - \Delta t) = u(x, t) - \Delta t \frac{\partial u(x, t)}{\partial t} + \frac{1}{2} \Delta t^{2} \frac{\partial^{2} u(x,t)}{\partial t^{2}} -\frac{1}{6}\Delta t^{3}\frac{\partial^{3}u(x,t)}{\partial t^{3}} + \cdots
 \end{equation}
 
-与上述空间差分算子的推导过程类似，位移函数对时间的偏导数用差分算子 $D_{t}$, $D_{tt}$ 表示为：
+与上述空间差分算子的推导过程类似，位移函数对时间的偏导数用差分算子 `$D_t$`、 `$D_{tt}$` 表示为 ：
 
 \begin{equation}
 \label{eq:13}
@@ -141,9 +142,9 @@ u(x, t - \Delta t) = u(x, t) - \Delta t \frac{\partial u(x, t)}{\partial t} + \f
 截断误差为 $O(\Delta t^{2})$ 。
 
 
-<a id="org4576b55"></a>
+<a id="org3a5e377"></a>
 
-# 一维波动方程的有限差分近似
+## 一维波动方程的有限差分近似
 
 使用公式 \ref{eq:7}, \ref{eq:10}, \ref{eq:13}, \ref{eq:14} 中的差分算子代替波动方程 \ref{eq:1} 中的微分算子，可以将波动方程近似为：
 
@@ -172,10 +173,18 @@ t = t_{n} = n \Delta t, \quad n=0, \pm1, \pm2, \cdots
 
 对求解域离散化后，可以将离散化的波动方程表示为如下式所示的形式：
 
+<div>
 \begin{equation}
 \label{eq:16}
-\frac{u_{j+1}^{n}+u_{j=1}^{n}-2u_{j}^{n}}{\Delta x^{2}} = \frac{1}{c^{2}} \frac{u_{j}^{n+!}+u_{j}^{n-1}-2u_{j}^{n}}{\Delta t^{2}}, \quad j=0,\pm1, \pm2, \cdots;n=0,1,2,\cdots
+\frac{u_{j+1}^{n}+u_{j-1}^{n}-2u_{j}^{n}}{\Delta x^{2}} = \frac{1}{c^{2}} \frac{u_{j}^{n+!}+u_{j}^{n-1}-2u_{j}^{n}}{\Delta t^{2}}, \quad j=0,\pm1, \pm2, \cdots;n=0,1,2,\cdots
 \end{equation}
+</div>
+
+
+To Be Continued!
+
+
+
 
 
 
