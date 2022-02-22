@@ -15,6 +15,7 @@ tags:
 * 从泰勒展开推导弹性波动方程的有限差分近似
 
 以一维弹性波动方程为例：
+
 $$
 \frac{\partial^{2}u(x,t)}{\partial x^{2}} = \frac{1}{c^{2}} \frac{\partial^{2} u(x,t)}{\partial t^{2}}
 $$
@@ -23,6 +24,7 @@ $$
 
 ** 空间差分算子的推导
 首先对位移函数 $u(x,t)$ 在坐标 $x$ 两侧附近作泰勒展开：
+
 $$
 u(x + \Delta x, t) = u(x, t) + \Delta x \frac{\partial u(x, t)}{\partial x} + \frac{1}{2} \Delta x^{2} \frac{\partial^{2} u(x,t)}{\partial x^{2}} + \frac{1}{6}\Delta x^{3}\frac{\partial^{3}u(x,t)}{\partial x^{3}} + \cdots
 $$
