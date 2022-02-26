@@ -2,7 +2,7 @@
 title: 从泰勒展开推导弹性波动方程的有限差分近似
 author: Tintingo
 date: '2022-02-22'
-slug: FDM-WaveEquation
+slug: FDM-WaveEquation-Taylor
 show_toc: ture
 toc_depth: 3
 categories:
@@ -18,15 +18,13 @@ tags:
 
 \begin{equation}
 \label{eq:1}
-\frac{\partial^{2}u(x,t)}{\partial x^{2}} = \frac{1}{c^{2}} \frac{\partial^{2} u(x,t)}{\partial t^{2}}
+\frac{\partial^{2}u(x,t)}{\partial x^{2}} = \frac{1}{c^{2}} \frac{\partial^{2} u(x,t)}{\partial t^{2}} + f(x,t)
 \end{equation}
 
-式中，位移 $u(x,t)$ 是空间坐标 x 和时间 t 的单值连续函数，$c$ 为波速。
+式中，位移 $u(x,t)$ 是空间坐标 x 和时间 t 的单值连续函数，$c$ 为波速，$f(x,t)$ 为源项。
 
-
-<a id="org0ba3982"></a>
-
-## 空间差分算子的推导
+## 从泰勒展开推导弹性波动方程的有限差分近似
+### 空间差分算子的推导
 
 首先对位移函数 $u(x,t)$ 在坐标 $x$ 两侧附近作泰勒展开：
 
@@ -40,10 +38,7 @@ u(x + \Delta x, t) = u(x, t) + \Delta x \frac{\partial u(x, t)}{\partial x} + \f
 u(x - \Delta x, t) = u(x, t) - \Delta x \frac{\partial u(x, t)}{\partial x} + \frac{1}{2} \Delta x^{2} \frac{\partial^{2} u(x,t)}{\partial x^{2}} - \frac{1}{6}\Delta x^{3}\frac{\partial^{3}u(x,t)}{\partial x^{3}} + \cdots
 \end{equation}
 
-
-<a id="org526bfd3"></a>
-
-### 位移对空间一阶偏导数的近似形式推导
+#### 位移对空间一阶偏导数的近似形式推导
 
 用 式 \ref{eq:2} 减去 式 \ref{eq:3}：
 
@@ -78,10 +73,7 @@ u(x+\Delta x, t) - u(x-\Delta x, t) = 2 \Delta \frac{\partial u(x, t)}{\partial 
 \frac{\partial u(x, t)}{\partial x} \approx D_{x}u = \frac{u(x+\Delta x, t) - u(x-\Delta x, t)}{2\Delta x}
 \end{equation}
 
-
-<a id="org4a25ccd"></a>
-
-### 位移对空间二阶偏导数的近似形式推导
+#### 位移对空间二阶偏导数的近似形式推导
 
 用 式 \ref{eq:2} 加上 式 \ref{eq:3}，得到：
 
@@ -110,10 +102,7 @@ u(x+\Delta x, t) + u(x-\Delta x, t) = 2 u(x, t) + \Delta x^{2} \frac{\partial^{2
 
 因此，位移函数在坐标 x 处的一阶和二阶偏导数，都可以近似表示为 x 附近函数值的差商形式，截断误差均为 $O(\Delta x^{2})$ 。
 
-
-<a id="org127a3cc"></a>
-
-## 时间差分算子的推导
+### 时间差分算子的推导
 
 首先对位移函数 $u(x,t)$ 在坐标 $t$ 两侧附近作泰勒展开：
 
@@ -127,7 +116,7 @@ u(x, t + \Delta t) = u(x, t) + \Delta t \frac{\partial u(x, t)}{\partial t} + \f
 u(x, t - \Delta t) = u(x, t) - \Delta t \frac{\partial u(x, t)}{\partial t} + \frac{1}{2} \Delta t^{2} \frac{\partial^{2} u(x,t)}{\partial t^{2}} -\frac{1}{6}\Delta t^{3}\frac{\partial^{3}u(x,t)}{\partial t^{3}} + \cdots
 \end{equation}
 
-与上述空间差分算子的推导过程类似，位移函数对时间的偏导数用差分算子 `$D_t$`、 `$D_{tt}$` 表示为 ：
+与上述空间差分算子的推导过程类似，位移函数对时间的偏导数用差分算子 `$D_{t}$`, `$D_{tt}$` 表示为：
 
 \begin{equation}
 \label{eq:13}
@@ -141,21 +130,18 @@ u(x, t - \Delta t) = u(x, t) - \Delta t \frac{\partial u(x, t)}{\partial t} + \f
 
 截断误差为 $O(\Delta t^{2})$ 。
 
-
-<a id="org3a5e377"></a>
-
 ## 一维波动方程的有限差分近似
 
 使用公式 \ref{eq:7}, \ref{eq:10}, \ref{eq:13}, \ref{eq:14} 中的差分算子代替波动方程 \ref{eq:1} 中的微分算子，可以将波动方程近似为：
 
 \begin{equation}
 \label{eq:15}
-\frac{u(x+\Delta x, t) + u(x - \Delta x, t) - 2 u(x, t)}{\Delta x^{2}} = \frac{1}{c^{2}} \frac{u(x, t+\Delta t) + u(x, t - \Delta t) - 2u(x, t)}{\Delta t^{2}}
+\frac{u(x+\Delta x, t) + u(x - \Delta x, t) - 2 u(x, t)}{\Delta x^{2}} = \frac{1}{c^{2}} \frac{u(x, t+\Delta t) + u(x, t - \Delta t) - 2u(x, t)}{\Delta t^{2}} + f(x,t)
 \end{equation}
 
-接下来我们对连续的波动方程求解域离散化，对求解域进行均匀网格划分，空间和时间步长分别为 $\Delta x$, $\Delta t$, 如下图所示：
+接下来我们对连续的波动方程求解域离散化，对求解域进行均匀网格划分，空间和时间步长分别为 `$\Delta x$`, `$\Delta t$`, 如下图所示：
 
-![img](https://vde05-1256575153.cos.ap-beijing.myqcloud.com/img/20220222195645.png)
+![](https://vde05-1256575153.cos.ap-beijing.myqcloud.com/img/FDM_Space_time_discrete.jpeg)
 
 经过离散化的空间坐标和时间坐标可以表示为：
 
@@ -176,12 +162,26 @@ t = t_{n} = n \Delta t, \quad n=0, \pm1, \pm2, \cdots
 <div>
 \begin{equation}
 \label{eq:16}
-\frac{u_{j+1}^{n}+u_{j-1}^{n}-2u_{j}^{n}}{\Delta x^{2}} = \frac{1}{c^{2}} \frac{u_{j}^{n+!}+u_{j}^{n-1}-2u_{j}^{n}}{\Delta t^{2}}, \quad j=0,\pm1, \pm2, \cdots;n=0,1,2,\cdots
+\frac{u_{j+1}^{n}+u_{j-1}^{n}-2u_{j}^{n}}{\Delta x^{2}} = \frac{1}{c^{2}} \frac{u_{j}^{n+1}+u_{j}^{n-1}-2u_{j}^{n}}{\Delta t^{2}} + f_j^n, \quad j=0,\pm1, \pm2, \cdots;n=0,1,2,\cdots
 \end{equation}
 </div>
 
+将上式整理，得到 `$u_{j}^{n+1}$` 的外推格式：
 
-To Be Continued!
+<div>
+\begin{equation}
+\label{eq:20}
+u_{j}^{n+1} = c_{j}^2 \frac{dt^2}{dx^2} [u_{j+1}^{n} - 2u_j^n + u_{j-1}^n] + 2u_j^n - u_j^{n-1} + dt^2 f_j^n
+\end{equation}
+</div>
+
+当第 $n-1$ 层的值 `$u_j^{n-1}$` 和第 $n$ 层的值 `$u_{j-1}{n}$`, `$u_{j}{n}$`, `$u_{j+1}{n}$` 的值已知时，可以直接计算得到第 $n+1$ 层的值 `$u_j^{n+1}$`。因此这种差分格式为三层显式差分格式。
+
+在计算的过程中，先对计算同一时刻的空间离散网格上的 $u$，也就是先求每一层的值，上一层算完了再算下一层。下面这个图片可能对理解计算的过程有帮助。
+
+![](https://vde05-1256575153.cos.ap-beijing.myqcloud.com/img/IMG_0529.jpeg)
+
+
 
 
 
