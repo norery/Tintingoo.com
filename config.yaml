@@ -1,8 +1,8 @@
-baseURL: "https://leovan.me/"
+baseURL: "https://tintingoo.com/"
 languageCode: "en-us"
 title: "Tintingo | 丁毅"
 googleAnalytics: "G-RJC7CCKE67"
-disqusShortname: "leovan"
+disqusShortname: "Tintingo"
 ignoreFiles: [
   "\\.Rmarkdown$", "\\.Rmd$", "\\.knit\\.md$", "\\.utf8\\.md$",
   "_files$", "_cache$", "\\.txt$", "\\.csv$", "\\.tsv$",
@@ -18,77 +18,33 @@ permalinks:
 
 menu:
   home:
-    - name: "首页"
-      url: "/"
-      weight: 1
-    - name: "博客"
-      url: "/cn/"
-      weight: 2
-    - name: "分类"
-      url: "/categories/"
-      weight: 3
-    - name: "关于"
-      url: "/cn/about/"
-      weight: 4
-    - identifier: "cn-menu-separator-1"
-      url: "#menu-separator"
-      weight: 5
-    - name: "摄影"
-      url: "/photography/"
-      weight: 6
-
-  main:
-    - name: "首页"
-      url: "/"
-      weight: 1
-    - name: "博客"
-      url: "/cn/"
-      weight: 2
-    - name: "分类"
-      url: "/categories/"
-      weight: 3
-    - name: "关于"
-      url: "/cn/about/"
-      weight: 4
-    - identifier: "cn-menu-separator-1"
-      url: "#menu-separator"
-      weight: 5
-    - name: "摄影"
-      url: "/photography/"
-      weight: 6
-      
-  en:
     - name: "Home"
       url: "/"
       weight: 1
     - name: "Blog"
-      url: "/en/"
+      url: "/blogs/"
       weight: 2
     - name: "Categories"
       url: "/categories/"
       weight: 3
-    - identifier: "en-menu-separator-1"
-      url: "#menu-separator"
+    - name: "Photography"
+      url: "/photography/"
+      weight: 4
 
-  cn:
-    - name: "首页"
+  main:
+    - name: "Home"
       url: "/"
       weight: 1
-    - name: "博客"
-      url: "/cn/"
+    - name: "Blog"
+      url: "/blogs/"
       weight: 2
-    - name: "分类"
+    - name: "Categories"
       url: "/categories/"
       weight: 3
-    - name: "关于"
-      url: "/cn/about/"
-      weight: 4
-    - identifier: "cn-menu-separator-1"
-      url: "#menu-separator"
-      weight: 5
-    - name: "摄影"
+    - name: "Photography"
       url: "/photography/"
-      weight: 6
+      weight: 4
+
 
 taxonomies:
   category: categories
@@ -144,31 +100,31 @@ params:
 
   lang:
     slogan:
-      en: "Tintingo's Blog"
-      cn: "烧一壶菲波那契的水"
+      en: "Tintingoo's Blog"
+      cn: "Tintingoo's Blog"
     author:
       en: "Tintingo"
-      cn: "丁毅"
+      cn: "Tintingo"
     license:
-      cn: "版权"
+      cn: "License"
       en: "License"
     subscribe:
-      cn: "订阅"
+      cn: "Subscribe"
       en: "Subscribe"
     categories:
-      cn: "分类"
+      cn: "Categories"
       en: "Categories"
     tags:
-      cn: "标签"
+      cn: "Tags"
       en: "Tags"
     wordcount:
-      cn: "字数"
+      cn: "Word Count"
       en: "Word Count"
     donate:
-      cn: "赞 赏"
+      cn: "DONATE"
       en: "DONATE"
     donate_slogan:
-      cn: "「真诚赞赏，手留余香」"
+      cn: "「Donation Given, Fragrance in Hand」"
       en: "「Donation Given, Fragrance in Hand」"
     donate_2_cny:
       cn: "2 元"

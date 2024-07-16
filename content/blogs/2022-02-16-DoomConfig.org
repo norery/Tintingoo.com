@@ -1,5 +1,5 @@
 ---
-title: 我的 Doom Emacs 配置文件 -- org 版
+title: My Doom Emacs configuration file -- org version
 author: Tintingo
 date: '2022-02-16'
 slug: doom-emacs-config

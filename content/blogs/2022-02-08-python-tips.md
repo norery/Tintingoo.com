@@ -6,7 +6,7 @@ slug: python-tips
 show_toc: true
 toc_depth: 3
 categories:
-  - 编程
+  - Coding
   - Python
 tags:
   - python

@@ -37,7 +37,7 @@ tags:
 
 简单说来就是以下几点：
 
-1. 安装 [[https://www.r-project.org/][R语言]] 及 [[https://www.rstudio.com/products/rstudio/download/#download][RStudio]]，还有 git（不会有人没装 git 吧）
+1. 安装 [[https://www.r-project.org/][R语言]] 及 [[https://www.rstudio.com/products/rstudio/download/#download][RStudio]]，还有 git.
 2. 安装 =blogdown= 包
    #+begin_src r
  install.packages("blogdown")
@@ -45,6 +45,8 @@ tags:
    #+end_src
 3. 创建一个 =Website using blogdown= 项目并启动；
    #+begin_src shell
+    # 编译 server
+    blogdown:::build_site()
     # 启动server
     blogdown:::serve_site()
     # 停止server
@@ -55,4 +57,4 @@ tags:
 
 注意很有可能你在网上找到的文章，在发布博客的时候选择的都是使用 netlify 发布。我一开始使用的也使 netlify，但在体验了几天后，发现 netlify 托管的网站，在国外访问的速度是比较快的，但是国内打开速度很慢。
 
-因此我目前的方案是使用 Vercel 进行发布，使用过程与 netlify 挺像的，都是使用 github 登陆后授权个人仓库，自动部署网站并提供随机生成的域名，我们就可以直接使用这个域名访问博客了。如果你想跟我一个拥有一个自己的个性域名的话，需要购买一个域名并备案（如果购买的是国内的域名的话）。我购买的是 [[https://wanwang.aliyun.com/domain/][阿里云万网]] 的域名，不同域名的价格不同，输入域名之后会有个报价，觉得合适的话可以选择购买。
+因此我目前的方案是使用 Vercel 进行发布，使用过程与 netlify 挺像的，都是使用 github 登陆后授权个人仓库，自动部署网站并提供随机生成的域名，我们就可以直接使用这个域名访问博客了。如果想拥有自己的个性域名的话，需要购买一个域名并备案（如果购买的是国内的域名的话）。我购买的是 [[https://wanwang.aliyun.com/domain/][阿里云万网]] 的域名，不同域名的价格不同，输入域名之后会有个报价，觉得合适的话可以选择购买。

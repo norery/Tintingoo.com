@@ -3,22 +3,32 @@ title: Homepage | 主页
 date: '2022-02-11'
 lastmod: '2022-02-11'
 ---
+Hi, I’m **Ding Yi**.  This is a relaxed yet somewhat informative, personal place where I share subjective content. The website may contain:
 
-这是 **丁毅** 的个人主页。学了 7 年的土木类专业，却总不想干可以提桶跑路的活，于是一路念书到了博士。大学时在旧书店淘到一本 Linux 的教科书 📖，从那时开始关注一些 Linux 系统及编程的知识。我是一个很愿意折腾的工具控，很想把折腾的过程与经验与大家分享，所以就有了这个网站。
+1. Some content related to earthquake engineering - professional knowledge (probably not many people will read 😑)
+2. A little bit of programming tutorials - Python, Matlab ... (more like notes than tutorials)
+3. Records and sharing of efficiency tools that have been tinkered with
+4. Some life insights and summaries
 
-这个网站可能会有的内容：
+### R E S E A R C H    C O N T E N T
++ AI for Earthquake Engineering
+	+ Physics-driven deep learning for seismic wave modeling
+	+ Seismic numerical simulation
++ Strong ground motion characteristics
+	+ Nonlinear Soil Behavior on Site Response
+	+ Borehole spectral ratio; HVSR;
+	+ seismic interferometry
+	
+### P U B L I C A T I O N S
+1. Ding, Y., Chen, S., Li, X., Wang, S., Luan, S., Sun, H., 2023. Self-adaptive physics-driven deep learning for seismic wave modeling in complex topography. Engineering Applications of Artificial Intelligence 123, 106425. [https://doi.org/10.1016/j.engappai.2023.106425](https://doi.org/10.1016/j.engappai.2023.106425)
+2. Ding, Y., Chen, S., Li, X., Jin, L., Luan, S., Sun, H., 2023. Physics-constrained neural networks for half-space seismic wave modeling. Computers & Geosciences 181, 105477. [https://doi.org/10.1016/j.cageo.2023.105477](https://doi.org/10.1016/j.cageo.2023.105477)
 
-1. 一些与地震工程相关的内容 -- 专业知识（估计也没有多少人看😑）
-2. 使用 Mac 搞学术的经验分享 -- 拿 Mac 做它擅长的事（好了大家都知道我有 Mac 了）
-3. 一点点编程教程 -- Python、Matlab ... （与其说教程，不如说是笔记吧）
-4. 我的工具流 -- 好用的软件分享（支持正版，从我做起❗）
-
-
+--- 
 > 世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它.     
 > _"Il n'ya qu'un héroïsme au monde : c'est de voir le monde tel qu'il est et de l'aimer." Romain Rolland._  
 
 
-Hi, I’m Tintin (Ding Yi). When I was a kid, I thought I was SpongeBob, but when I grew up, I realized I was Squidward. 
+When I was a kid, I thought I was SpongeBob, but when I grew up, I realized I was Squidward. 
 
 > "The older we get, the more we understand this guy". 
 

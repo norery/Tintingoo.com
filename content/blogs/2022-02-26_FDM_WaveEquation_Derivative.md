@@ -1,7 +1,7 @@
 ---
-title: 一维波动方程的有限差分方法
+title: 有限差分方法近似函数导数
 author: Tintingo
-date: '2022-02-26'
+date: 2022-02-26
 slug: FDM-WaveEquation-Derivative
 show_toc: ture
 toc_depth: 3

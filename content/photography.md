@@ -1,6 +1,6 @@
 ---
 title: 摄影
-author: 范叶亮
+author: Tintingoo
 date: '2020-05-15'
 lastmod: '2020-05-15'
 slug: photography

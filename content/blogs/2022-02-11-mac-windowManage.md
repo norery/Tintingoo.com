@@ -1,7 +1,7 @@
 ---
-title: 高效Mac学术指南-窗口管理篇
+title: MacOS中的平铺式桌面 -- yabai
 author: Tintingo
-date: '2022-02-11'
+date: 2022-02-11
 slug: mac-window-manage
 show_toc: true
 toc_depth: 3
